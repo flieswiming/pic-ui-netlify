@@ -3,10 +3,10 @@ var getPath_router = express.Router()//更改路由
 var fs = require('fs');
 var path_fun = require('path');
 
-getPath_router.get('/', (req, res) => {
-  // res.render("index")
-res.send("hello")
-})
+// getPath_router.get('/', (req, res) => {
+//   res.render("index")
+// // res.send("hello")
+// })
 getPath_router.get('/api/path', (req, res) => {
     function getJsonFiles(jsonPath){
         let jsonFiles = [];
