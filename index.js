@@ -1,7 +1,7 @@
 var app = require('express')()
 var fs = require('fs');
 var path_fun = require('path');
-
+app.get('/path', (req, res) => {res.send("hello")})
 app.get('/path', (req, res) => {
     function getJsonFiles(jsonPath){
         let jsonFiles = [];
@@ -25,8 +25,7 @@ app.get('/path', (req, res) => {
         findJsonFile(jsonPath);
            return jsonFiles
     }
-    var img = getJsonFiles("img");  
-
+    var img = getJsonFiles("./img");  
     res.json(img)
 })
 
