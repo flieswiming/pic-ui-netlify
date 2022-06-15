@@ -24,8 +24,8 @@
 
         mounted() {
           axios
-            // .get("https://tempic.vercel.app/api/path")
-            .get("http://localhost:3000/api/path")
+            .get("https://tempic.vercel.app/api/path")
+            // .get("http://localhost:3000/api/path")
             .then((response) => {
               this.pathlist = response.data;
               console.log(this.pathlist);
