@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node index.js",
-    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit"
+    // "build": "node index.js",
+    // "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit"
   },
   "keywords": [],
   "author": "",
