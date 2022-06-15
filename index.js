@@ -1,4 +1,4 @@
-var express = require('express')
+var app = require('express')()
 var fs = require('fs');
 var path_fun = require('path');
 
