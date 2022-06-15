@@ -1,32 +1,16 @@
-var app = require('express')()
-var fs = require('fs');
-var path_fun = require('path');
-app.get('/', (req, res) => {res.send("hello")})
-app.get('/path', (req, res) => {
-    function getJsonFiles(jsonPath){
-        let jsonFiles = [];
-        function findJsonFile(path){
-            let files = fs.readdirSync(path);
-            files.forEach(
-                function (item, index) {
-                let fPath =path_fun.resolve(path_fun.join(path,item))
-                let fomatPath = fPath.slice(fPath.indexOf('\\img'));
-                    console.log( fomatPath);
-                    // .replace(/\\/g,"/")
-                let stat = fs.statSync(fPath);
-                if(stat.isDirectory() === true) {
-                    findJsonFile(fomatPath);
-                }
-                if (stat.isFile() === true) { 
-                  jsonFiles.push( fomatPath.replace(/\\/g,"/"));
-                }
-            });
-        }
-        findJsonFile(jsonPath);
-           return jsonFiles
-    }
-    var img = getJsonFiles("img");  
-    res.json(img)
-})
+const app = require('express')();
+const { v4 } = require('uuid');
 
-module.exports = app//导出路由
+app.get('/api', (req, res) => {
+  const path = `/api/item/${v4()}`;
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+});
+
+app.get('/api/item/:slug', (req, res) => {
+  const { slug } = req.params;
+  res.end(`Item: ${slug}`);
+});
+
+module.exports = app;
