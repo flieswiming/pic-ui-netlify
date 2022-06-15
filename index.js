@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 var path = require('path')
-var getPath_router= require('./getPath')
+var getPath_router= require('./api/getPath')
 
 
 //暴露公共资源
