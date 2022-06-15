@@ -32,6 +32,6 @@ getPath_router.get('/api/path', (req, res) => {
     res.json(img)
 })
 
-module.exports = getPath_router//导出路由
+module.exports = app//导出路由
  
 
