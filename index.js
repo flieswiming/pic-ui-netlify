@@ -23,11 +23,10 @@ app.get('/path', (req, res) => {
             });
         }
         findJsonFile(jsonPath);
-     
-         return jsonFiles
+           return jsonFiles
     }
     var img = getJsonFiles("img");  
-    console.log(img)
+
     res.json(img)
 })
 
