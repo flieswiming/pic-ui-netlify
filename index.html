@@ -22,7 +22,7 @@
 <body>
 
 <div id="app">
-
+{{msg}}
    
 <ul><li v-for="pic in album">
     <img class="pic" :src="pic">
@@ -31,18 +31,20 @@
 </div>
 
  <script src="./js/vue.js"></script>
+ <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 <!-- <script src="./js/main.js"></script>  -->
 
+    
 <script>
+    let msgFun=function（）{return axios.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160');
+}
+    
 let vm = new Vue({
 el : '#app',
-
 data:{
-
     album:["./1.jpg","./2.jpg","./3.jpg"],
-  
+    msg:msgFun()
    
- 
     },
 
 
