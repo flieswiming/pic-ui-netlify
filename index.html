@@ -39,12 +39,12 @@
 let msgFun =  function getImg() {
       return axios.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160');
     }
-console.log(msgFun（）)
+console.log(msgFun())
 let vm = new Vue({
 el : '#app',
 data:{
     album:["./1.jpg","./2.jpg","./3.jpg"],
-    msg:msgFun（）   
+    msg:msgFun() 
     },
 
 }
