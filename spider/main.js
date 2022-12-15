@@ -23,7 +23,11 @@ $('.js-navigation-open').each(function(i, elem) {
 // console.log(c)
     // 处理成功情况
  
-    callback(myHref)
+    callback(myHref，{
+      statusCode: 201,
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      })
 
   })
   .catch(function (error) {
