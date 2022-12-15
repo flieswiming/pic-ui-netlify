@@ -36,9 +36,9 @@
 
     
 <script>
-let msgFun =  function getImg() {
-      return axios.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160'，
-      {statusCode: 201,  headers: { 'Access-Control-Allow-Origin': '*' })
+let msgFun =  function getImg(callback) {
+    var corsObj = {statusCode: 201,  headers: { 'Access-Control-Allow-Origin': '*' }}
+      return axios.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160',corsObj)
     }
 console.log(msgFun())
 let vm = new Vue({
