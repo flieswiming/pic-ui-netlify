@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,64 @@
     <title>album demo</title>
 
     <style>
-   
-    .pic{
-        display:inline-block;
-        border: solid 1px red;
-        width:50%;
-        height: 50%;
-        margin: 10px 30px;
-    }
+        .pic {
+            display: inline-block;
+            border: solid 1px red;
+            width: 50%;
+            height: 50%;
+            margin: 10px 30px;
+        }
     </style>
 
 </head>
 
 <body>
 
-<div id="app">
-{{msg}}
-   
-<ul><li v-for="pic in album">
-    <img class="pic" :src="pic">
-    </li>
-</ul>
-</div>
-
- <script src="./js/vue.js"></script>
- <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-<!-- <script src="./js/main.js"></script>  -->
-
-    
-<script>
-let msgFun =  function getImg(callback) {
-    var corsObj = {statusCode: 201,  headers: { 'Access-Control-Allow-Origin': '*' }}
-      return axios.get('https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160',corsObj)
-    }
-console.log(msgFun())
-let vm = new Vue({
-el : '#app',
-data:{
-    album:["./1.jpg","./2.jpg","./3.jpg"],
-    msg:msgFun() 
-    },
-
-}
-)
-</script> 
+            <div id="app">
+                <button @click="getData()">请求数据</button>
+                <ul>
+                    <li v-for="item in users">
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
 
 
+
+
+    <script src="./js/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/fetch-jsonp/1.2.3/fetch-jsonp.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    users: []
+                }
+            },
+            methods: {
+                getData() {
+                    var url ='http://129.159.139.101:3000';
+                      fetchJsonp(url, {jsonpCallback: 'callback'})
+                        .then((response) => {
+                          console.log(response);
+                          console.log(response.json());
+                          return response.json();
+                        }).then((json) => {
+                            console.log(json)
+                        this.users = json;	// 在此处进行接收数据之后的操作
+                      }).catch((error) => {
+                        console.log(error);	// 此处是数据请求失败后的处理
+                      })
+                }
+            },
+            mounted() { //新新的时候数据就显示出来
+                this.getData();
+            }
+        })
+    </script>
 
 </body>
+
 </html>
+
