@@ -45,7 +45,7 @@
             },
             methods: {
                 getData() {
-                    var url ='http://129.159.139.101:3000';
+                    var url ='https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=zh-CN&nc=1612409408851&pid=hp&FORM=BEHPTB&uhd=1&uhdwidth=3840&uhdheight=2160';
                       fetchJsonp(url, {jsonpCallback: 'callback'})
                         .then((response) => {
                           console.log(response);
