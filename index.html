@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My first Vue app</title>
+  <title>album Vue app</title>
+   <style>
+   
+    .album{
+        display:inline-block;
+        border: solid 1px red;
+        width:50%;
+        height: 50%;
+        margin: 10px 30px;
+    }
+    </style>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
@@ -13,7 +23,7 @@
       <input v-model="question">
     </p>
     <p>{{ answer }}</p>
-    <ul><li v-for="pic in album">
+    <ul><li class="album" v-for="pic in album">
         <img class="pic" :src="pic">
         </li>
     </ul>
@@ -24,7 +34,7 @@
       el: '#watch-example',
       data: {
         question: '',
-        answer: 'I cannot give you an answer until you ask a question!',
+        answer: 'give me password',
         album:[]
       },
       watch: {
@@ -44,11 +54,11 @@
       },
       methods: {
         getAnswer: function () {
-          if (this.question.indexOf('?') === -1) {
-            this.answer = 'Questions usually contain a question mark. ;-)'
+          if (this.question!="care") {
+            this.answer = '啊哦，不对'
             return
           }
-          this.answer = 'Thinking...'
+          this.answer = 'Show time,enjoy...'
           var vm = this
           axios.get('https://picapi.up.railway.app/')
             .then(function (response) {
