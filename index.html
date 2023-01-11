@@ -3,17 +3,41 @@
 <head>
   <title>album Vue app</title>
    <style>
-     li{
-     margin:10px;
-     padding:10px;
-     display:inline-block;
-     float:left;
+   <style>
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.content{
+padding:30px;
+margin-left:-100px;
+}
+ ul {
+  width: 1200px;
+  height: auto;
+  margin: 10px auto;
+
+  overflow: hidden;
+  list-style: none;
+}
+ 
+   .main{
+   font-size:32px;
+   }
+   input {
+    width: 300px;
+	height:40px;
+}
+
+     li{ margin:30px;
+  list-style-type: none;
      }
     .album{
-        display:inline-block;
-        border: solid 1px gray;
-        width: 60%;
-        height: 60%;   
+     width:100%; 
+     height:100%; 
+     border: solid 1px gray;
+        
     }
     </style>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,16 +45,18 @@
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
 </head>
 <body>
-  <div id="watch-example">
+  <div class="main" id="watch-example">
     <p>
       You See,Password:
-      <input v-model="question">
+      <p><input v-model="question"></p>
     </p>
     <p>{{ answer }}</p>
+    <div class="content">
     <ul><li v-for="pic in album">
         <img class="album"  :src="pic">
         </li>
     </ul>
+      </div>
   </div>
 
   <script>
