@@ -19,12 +19,12 @@
 <body>
   <div id="watch-example">
     <p>
-      Ask a yes/no question:
+      You See,Password:
       <input v-model="question">
     </p>
     <p>{{ answer }}</p>
-    <ul><li class="album" v-for="pic in album">
-        <img class="pic" :src="pic">
+    <ul><li v-for="pic in album">
+        <img class="album"  :src="pic">
         </li>
     </ul>
   </div>
@@ -34,7 +34,7 @@
       el: '#watch-example',
       data: {
         question: '',
-        answer: 'give me password',
+        answer: 'Give Me Your Password:',
         album:[]
       },
       watch: {
