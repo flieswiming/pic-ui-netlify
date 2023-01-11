@@ -50,7 +50,7 @@
           }
           this.answer = 'Thinking...'
           var vm = this
-          axios.get('http://129.159.139.101:4000/')
+          axios.get('https://picapi.up.railway.app/')
             .then(function (response) {
               vm.album =response.data
               console.log(vm.album)
