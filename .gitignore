@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+pic/
+.deploy*/
+.env
+.env.build
+.vercel
+.obsidian/
